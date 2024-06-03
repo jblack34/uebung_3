@@ -32,7 +32,7 @@ getwd()
 #Schritt 1: Daten laden
 
 # NRW2019 Wahlergebnisse
-NRW19data <- read_excel("./NRW2019/NRW19data.xlsx")
+NRW19data <- read_excel("C:/Users/j-sch/VU_PolKom/uebung_3/data_3/NRW2019_RWKErg.xlsx")
 
 # NRW-Wahlkreiseinteilung
 NRW_geo <- sf::st_read("./RWK2019", stringsAsFactors = FALSE)
