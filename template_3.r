@@ -25,17 +25,17 @@ rm(list = ls())
 
 # Arbeitsverzeichnis festlegen
 getwd()
-setwd("i:/User/Desktop/93 402130 BA VU PolKom SS2024/07 Vorbereitung/R Skripts/")
+setwd("C:/Users/j-sch/VU_PolKom/uebung_3/")
 getwd()
 
 
 #Schritt 1: Daten laden
 
 # NRW2019 Wahlergebnisse
-NRW19data <- read_excel("C:/Users/j-sch/VU_PolKom/uebung_3/data_3/NRW2019_RWKErg.xlsx")
+NRW19data <- read_excel("./data_3/NRW2019_RWKErg.xlsx")
 
 # NRW-Wahlkreiseinteilung
-NRW_geo <- sf::st_read("./RWK2019", stringsAsFactors = FALSE)
+NRW_geo <- sf::st_read("./data_3/RWK2019/", stringsAsFactors = FALSE)
 
 
 #Schritt 2: Daten in benötigte Form bringen
