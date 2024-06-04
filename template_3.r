@@ -90,13 +90,19 @@ NRW19data <- NRW19data %>%
 
 
 #Wahlbeteiligung
-savep
-
 tm_shape(NRW_map_data) +
   tm_polygons("Wahlbeteiligung",
+              palette = ("magma"),
               style="order", 
               title="Wahlbeteiligung \nin den Regionalwahlkreisen")
+tmap_save()
 
+#Umgekehrte Farben
+tm_shape(NRW_map_data) +
+  tm_polygons("Wahlbeteiligung",
+              palette = ("-magma"),
+              style="order", 
+              title="Wahlbeteiligung \nin den Regionalwahlkreisen")
 tmap_save()
 
 #Parteiergebnisse
@@ -109,9 +115,7 @@ tm_shape(NRW_map_data) +
 savePlot()
 
 # Parteiergebnisse
-
 # mit Grauskala
-
 tm_shape(NRW_map_data) +
   tm_polygons("ÖVPpct",
               palette = "Greys",
