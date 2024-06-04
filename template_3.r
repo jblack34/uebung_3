@@ -8,6 +8,14 @@ library(readxl)
 install.packages("sf")
 library(sf)
 
+# Import colors 
+install.packages("RColorBrewer")
+library(RColorBrewer)
+
+# Import colors 
+install.packages("viridis")
+library(viridis)
+
 #Fehlerüberprüfung - function "anti_join" + "mutate" zum erstellen der Variable Wahlbeteiligung
 install.packages("dplyr")
 library(dplyr)
@@ -73,8 +81,8 @@ NRW_map_data$Wahlbeteiligung <- round(NRW19data$Wahlbeteiligung, digits=1)
 # ...
 
 # tidyverse
-# NRW19data <- NRW19data %>%
-#  mutate(Wahlbeteiligung = (abg.Stimmen/Wahlberechtigte)*100)
+NRW19data <- NRW19data %>%
+  mutate(Wahlbeteiligung = (abg.Stimmen/Wahlberechtigte)*100)
 
 
 
@@ -82,13 +90,14 @@ NRW_map_data$Wahlbeteiligung <- round(NRW19data$Wahlbeteiligung, digits=1)
 
 
 #Wahlbeteiligung
-
+savep
 
 tm_shape(NRW_map_data) +
-  tm_polygons("Wahlbeteiligung", 
-              style="pretty", 
+  tm_polygons("Wahlbeteiligung",
+              style="order", 
               title="Wahlbeteiligung \nin den Regionalwahlkreisen")
 
+tmap_save()
 
 #Parteiergebnisse
 
@@ -97,7 +106,7 @@ tm_shape(NRW_map_data) +
               palette = "Greys",
               style="pretty", 
               title="ÖVP Wahlergebnis \nin Prozent")
-
+savePlot()
 
 # Parteiergebnisse
 
